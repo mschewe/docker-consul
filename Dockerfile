@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Mark Schewe <mark.schewe@stampay.com>
-ENV REFRESHED_AT 2015-01-02
+ENV REFRESHED_AT 2015-01-05
+
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
 RUN apt-get -qqy update
 RUN apt-get -qqy install curl unzip
