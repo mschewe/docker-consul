@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER Mark Schewe <mark.schewe@stampay.com>
-ENV REFRESHED_AT 2015-01-05
+ENV REFRESHED_AT 2015-02-04
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
@@ -16,6 +16,7 @@ RUN cd /tmp/ && unzip webui.zip && mv dist/ /webui/
 VOLUME [ "/data" ]
 
 ADD consul.json /config/
+ADD web.json /config/
 
 EXPOSE 53/udp 8300 8301 8301/udp 8302 8302/udp 8400 8500
 
